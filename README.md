@@ -1,13 +1,20 @@
-##Environment
+## Environment
 
 Create the virtual environment by running:
 
 pip -r requirements.txt
 
-##Preprocess
+Download the Full Movielens data(58,000 movies) from this link: https://grouplens.org/datasets/movielens/latest/
+Save it to data/ folder
+
+## Preprocess
 1) Matches the mentioned movies in redial data with the movielens IDs.
 
+Redial
 python scripts/match_movies.py --redial=data/redial_dataset/movies_with_mentions.csv --ml_movies=data/ml-latest/movies.csv --output=data/redial/movies_merged.csv
+
+Gorecdial
+python scripts/match_movies.py --redial=data/gorecdial_dataset/movies_with_mentions.csv --ml_movies=data/ml-latest/movies.csv --output=data/redial/movies_merged.csv
 
 2) Get the redial dataset and movielens dataset then use scripts/match_movies.py to create the matched up ids of movies, movie_match.csv.
 
