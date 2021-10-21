@@ -10,25 +10,25 @@ Save it to data/ folder
 ## Preprocess
 1) Matches the mentioned movies in redial data with the movielens IDs.
 
-### Redial:
+#### Redial:
 python scripts/match_movies.py --redial=data/redial_dataset/movies_with_mentions.csv --ml_movies=data/ml-latest/movies.csv --output=data/redial/
 
 This step is not needed for Gorecdial
 
 2) Get the redial dataset and movielens dataset then use scripts/match_movies.py to create the matched up ids of movies, movie_match.csv.
 
-### Redial:
+#### Redial:
 python scripts/reformat.py --movie_merged data/redial/movies_merged.csv --ml_movies data/ml-latest/movies.csv --output data/redial/movie_match.csv
 
-### Gorecdial:
+#### Gorecdial:
 python scripts/reformat_gorecdial.py --movie_merged data/gorecdial/movies_merged.csv --ml_movies data/ml-latest/movies.csv --output data/gorecdial/movie_match.csv
 
 3) extract_movie_summary.py -- extracts the movie plots from my database
 
-### Redial:
+#### Redial:
 python scripts/extract_movie_summary.py --movie_match data/redial/movie_match.csv --output data/redial/movie_plot.csv
 
-### Gorecdial:
+#### Gorecdial:
 python scripts/extract_movie_summary.py --movie_match data/gorecdial/movie_match.csv --output data/gorecdial/movie_plot.csv
 
 4) split_movielens.py:  Split ratings data, keeping only movies we matched up and write out the
@@ -44,10 +44,10 @@ outputs: movie_map.csv -- Entire mapping between movies, movielens and matrix id
                                  essentially making it a 80/10/10 train/valid/test split
 
 
-### Redial:
+#### Redial:
 python scripts/split_movielens.py -ratings data/ml-latest/ratings.csv -movie_match data/redial/movie_match.csv -o data/redial/
 
-### Gorecdial:
+#### Gorecdial:
 python scripts/split_movielens.py -ratings data/ml-latest/ratings.csv -movie_match data/gorecdial/movie_match.csv -o data/gorecdial/
 
 ## Pretrain
