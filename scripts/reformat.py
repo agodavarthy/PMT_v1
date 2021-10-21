@@ -27,7 +27,9 @@ def extract_year(title):
 if __name__ == '__main__':
     opt = parser.parse_args()
     movies = pd.read_csv(opt.movie_merged).rename(
-        columns={"databaseId": "id", "movielensId": "ml_id", "movieName": "title"}).drop('index', 1)
+        columns={"databaseId": "id", "movielensId": "ml_id", "movieName": "title"})
+    #movies = pd.read_csv(opt.movie_merged).rename(
+    #    columns={"databaseId": "id", "movielensId": "ml_id", "movieName": "title"}).drop('index', 1)
     movies = movies[(movies.id != -1) & (movies.ml_id != -1)]
 
     ml_movies = pd.read_csv(opt.ml_movies, usecols=['movieId', 'title']).rename(columns={'movieId': 'ml_id'})

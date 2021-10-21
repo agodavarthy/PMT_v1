@@ -15,6 +15,7 @@ from util.models.mlp import MLPMatrixFactorization
 from util.models.mf import MatrixFactorization
 from util.models.neumf import NeuralMatrixFactorization
 from util.data import Dataset
+from rutil.metric.ir import precision_recall_score
 import torch
 import json
 import torch.nn.functional as F
